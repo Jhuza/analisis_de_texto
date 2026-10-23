@@ -5,14 +5,11 @@ import re
 from googletrans import Translator
 
 # Configuración de la página
-st.set_page_config(
-    page_title="Analizador de Texto Simple",
-    page_icon="📊",
-    layout="wide"
-)
 
 # Título y descripción
-st.title("📝 Analizador de Texto con TextBlob")
+from aurora import app_header, footer
+app_header()
+
 st.markdown("""
 Esta aplicación utiliza TextBlob para realizar un análisis básico de texto:
 - Análisis de sentimiento y subjetividad
@@ -218,9 +215,9 @@ def crear_visualizaciones(resultados):
 # Lógica principal según el modo seleccionado
 if modo == "Texto directo":
     st.subheader("Ingresa tu texto para analizar")
-    texto = st.text_area("", height=200, placeholder="Escribe o pega aquí el texto que deseas analizar...")
+    texto = st.text_area("Texto para analizar", height=200, placeholder="Escribe o pega aquí el texto que deseas analizar...")
     
-    if st.button("Analizar texto"):
+    if st.button("Analizar texto", type="primary"):
         if texto.strip():
             with st.spinner("Analizando texto..."):
                 resultados = procesar_texto(texto)
@@ -230,7 +227,7 @@ if modo == "Texto directo":
 
 elif modo == "Archivo de texto":
     st.subheader("Carga un archivo de texto")
-    archivo = st.file_uploader("", type=["txt", "csv", "md"])
+    archivo = st.file_uploader("Archivo de texto", type=["txt", "csv", "md"])
     
     if archivo is not None:
         try:
@@ -238,7 +235,7 @@ elif modo == "Archivo de texto":
             with st.expander("Ver contenido del archivo"):
                 st.text(contenido[:1000] + ("..." if len(contenido) > 1000 else ""))
             
-            if st.button("Analizar archivo"):
+            if st.button("Analizar archivo", type="primary"):
                 with st.spinner("Analizando archivo..."):
                     resultados = procesar_texto(contenido)
                     crear_visualizaciones(resultados)
@@ -266,3 +263,6 @@ with st.expander("📚 Información sobre el análisis"):
 # Pie de página
 st.markdown("---")
 st.markdown("Desarrollado con ❤️ usando Streamlit y TextBlob")
+
+
+footer("TEXTO / IMAGEN / VOZ / INTERACCIÓN")
