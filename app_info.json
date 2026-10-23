@@ -1,0 +1,18 @@
+{
+  "slug": "analisis_de_texto",
+  "entry": "app.py",
+  "title": "Análisis de texto",
+  "category": "Texto",
+  "headline": "Del texto.",
+  "accent": "A sus señales.",
+  "description": "Explora sentimiento, subjetividad y palabras frecuentes en texto o archivos.",
+  "input": "Texto directo o archivo TXT, CSV o MD.",
+  "output": "Polaridad, subjetividad, frecuencias y análisis por oración.",
+  "steps": "Elige la fuente en el panel lateral, añade el texto y pulsa Analizar texto o Analizar archivo.",
+  "technology": "TextBlob · Google Translate",
+  "limits": "Traduce al inglés para estimar sentimiento. Ironía, contexto y errores de traducción pueden alterar el resultado.",
+  "image": "data_analisis.png",
+  "url": "https://dpa3jd7qptphp3yff5vuxn.streamlit.app/",
+  "repo": "https://github.com/Jhuza/analisis_de_texto",
+  "kind": "document"
+}
